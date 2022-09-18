@@ -5,6 +5,7 @@ arr1 can be nested inside arr2 if:
 arr1's min is greater than arr2's min.
 arr1's max is less than arr2's max.*/
 
+//**********INITIAL WORK************8
 function canNest(arr1, arr2) {
   let arr1min = arr1[0];
   let arr1max = arr1[arr1.length - 1];
@@ -16,6 +17,8 @@ function canNest(arr1, arr2) {
   }
   return false;
 }
+
+//************** SOLUTION *****************
 function canNest(arr1, arr2) {
   let arr1Min = Math.min(...arr1);
   let arr1Max = Math.max(...arr1);
@@ -26,11 +29,14 @@ function canNest(arr1, arr2) {
   if (arr1Min > arr2Min && arr1Max < arr2Max) {
     return true;
   } return false;
-  //This works because Math.min & Math.max will go through array and find the min & max, this is specifically for example 2. Solution can also be written:
-  //return Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2)
 }
 
 console.log(canNest([1, 2, 3, 4], [0, 6]), "should return true")
 console.log(canNest([3, 1], [4, 0]), "should return true")
 console.log(canNest([9, 9, 8], [8, 9]), "should return false")
 console.log(canNest([1, 2, 3, 4], [2, 3]), "should return false")
+
+
+//*********** NOTES*************
+//Solution works because Math.min & Math.max will go through array and find the min & max, this is specifically for example 2. Solution can also be written:
+//return Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2)
