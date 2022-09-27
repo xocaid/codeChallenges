@@ -18,7 +18,7 @@ function canNest(arr1, arr2) {
   return false;
 }
 
-//************** SOLUTION *****************
+//************** SOLUTION 1 *****************
 function canNest(arr1, arr2) {
   let arr1Min = Math.min(...arr1);
   let arr1Max = Math.max(...arr1);
@@ -36,7 +36,33 @@ console.log(canNest([3, 1], [4, 0]), "should return true")
 console.log(canNest([9, 9, 8], [8, 9]), "should return false")
 console.log(canNest([1, 2, 3, 4], [2, 3]), "should return false")
 
+//************** SOLUTION 2 *****************
+function canNest(arr1, arr2) {
+  let arr1Min = Math.min(...arr1);
+  let arr1Max = Math.max(...arr1);
+
+  let arr2Min = Math.min(...arr2);
+  let arr2Max = Math.max(...arr2);
+
+  return arr1Min > arr2Min && arr1Max < arr2Max
+}
+
+console.log(canNest([1, 2, 3, 4], [0, 6]), "should return true")
+console.log(canNest([3, 1], [4, 0]), "should return true")
+console.log(canNest([9, 9, 8], [8, 9]), "should return false")
+console.log(canNest([1, 2, 3, 4], [2, 3]), "should return false")
+
+//************** SOLUTION 3 *****************
+function canNest(arr1, arr2) {
+  return Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2)
+}
+
+console.log(canNest([1, 2, 3, 4], [0, 6]), "should return true")
+console.log(canNest([3, 1], [4, 0]), "should return true")
+console.log(canNest([9, 9, 8], [8, 9]), "should return false")
+console.log(canNest([1, 2, 3, 4], [2, 3]), "should return false")
+
 
 //*********** NOTES*************
-//Solution works because Math.min & Math.max will go through array and find the min & max, this is specifically for example 2. Solution can also be written:
-//return Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2)
+//Solution 1 works because Math.min & Math.max will go through array and find the min & max
+//Solution 3 is a simplified version and RETURN activates boolean, if true will return true; otherwise will return false
